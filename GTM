@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepBaba: GTM CEO Blueprint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Premium Neutrals with a Strategic Teal Accent -->
+    <!-- Application Structure Plan: This "CEO Blueprint" is the final evolution, structured as a comprehensive strategic narrative designed for executive review. It adds a crucial "Executive Summary" for a top-down view. The Diagnosis is deepened with a full Value Proposition Canvas and market trend analysis. The Strategy section now includes concrete Messaging Pillars and a Phased Budgeting model. Economics introduces a forward-looking LTV/CAC projection. The Roadmap is a detailed Gantt chart with phased KPIs. This structure provides unparalleled depth, moving from high-level strategy to granular operational detail in a seamless, interactive flow. -->
+    <!-- Visualization & Content Choices: 
+        - Value Proposition Canvas (Diagnosis): Goal: Empathize/Strategize. Method: Custom HTML/CSS visual. Justification: A foundational strategy tool that rigorously maps user needs to product features, demonstrating deep product-market fit thinking.
+        - Market Trends Infographic (Diagnosis): Goal: Contextualize. Method: Custom HTML/CSS cards. Justification: Shows awareness of the broader market forces that make this strategy timely and relevant.
+        - Growth Engine Infographic (Strategy): Goal: Explain. Method: Detailed 3-stage HTML/CSS visual. Justification: Articulates the core strategic flywheel with maximum clarity.
+        - Phased Budget Chart (Economics): Goal: Justify. Method: Stacked Bar Chart (Chart.js). Justification: Provides a sophisticated view of financial planning, showing how spend evolves with the campaign's maturity.
+        - LTV/CAC Projection (Economics): Goal: Persuade. Method: Dynamic KPI cards. Justification: The ultimate proof of long-term viability, connecting this initial investment to future revenue and profitability.
+        - Detailed Gantt Chart (Roadmap): Goal: Organize/Execute. Method: Custom HTML/CSS grid. Justification: Presents the operational plan with a level of professional detail that inspires confidence in execution capability.
+        - Library/Method: All charts utilize Chart.js with the Datalabels plugin for clarity. All other advanced visuals are custom-built with HTML/CSS and Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #111827; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin: auto; height: 320px; max-height: 400px; }
+        .nav-link { transition: all 0.3s ease; border-bottom: 2px solid transparent; }
+        .nav-link:hover, .nav-link.active { color: #0d9488; border-bottom-color: #0d9488; }
+        .kpi-card { background-color: white; border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05); border: 1px solid #e5e7eb; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .kpi-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); }
+        .funnel-stage { clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%); }
+        .gantt-bar { position: absolute; height: 24px; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: bold; }
+        .value-prop-box { background-color: #f3f4f6; border: 1px solid #d1d5db; padding: 1rem; border-radius: 0.5rem; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/95 backdrop-blur-lg sticky top-0 z-50 shadow-sm border-b border-gray-200">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-black text-gray-900">PrepBaba <span class="font-light text-teal-600">| CEO Blueprint</span></h1>
+            <div class="hidden md:flex space-x-8"><a href="#summary" class="nav-link text-gray-600 font-medium py-2">Summary</a><a href="#diagnosis" class="nav-link text-gray-600 font-medium py-2">Diagnosis</a><a href="#strategy" class="nav-link text-gray-600 font-medium py-2">Strategy</a><a href="#economics" class="nav-link text-gray-600 font-medium py-2">Economics</a><a href="#roadmap" class="nav-link text-gray-600 font-medium py-2">Roadmap</a></div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center mb-24">
+            <h2 class="text-5xl md:text-7xl font-black text-gray-900 leading-tight">Project Apex: A 90-Day Campaign to Dominate the Tier-2 Talent Market</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-4xl mx-auto">This is the definitive blueprint for launching PrepBaba into non-metro B-Schools. It outlines a hyper-targeted, financially disciplined 90-day strategy to acquire <span class="font-bold text-teal-600">10,000+ high-value users</span> with a <span class="font-bold text-teal-600">₹300,000</span> budget, establishing a beachhead for future monetization and market leadership.</p>
+        </section>
+
+        <!-- Executive Summary -->
+        <section id="summary" class="mb-24 scroll-mt-24">
+            <div class="text-center mb-12"><h3 class="text-4xl font-bold text-gray-800">Executive Summary</h3></div>
+            <div class="bg-white p-8 rounded-lg shadow-2xl border border-gray-200 max-w-5xl mx-auto">
+                <p class="text-lg text-gray-700 leading-relaxed">PrepBaba is uniquely positioned to capture the vast, underserved market of ambitious MBA students in India's Tier-2/3 colleges. These students face a "resource gap," lacking the structured, credible placement preparation tools available to their Tier-1 counterparts. Our diagnosis reveals this is a problem of <strong class="text-gray-900">access and structure</strong>, not ambition.</p>
+                <p class="mt-4 text-lg text-gray-700 leading-relaxed">This blueprint details a 90-day, ₹300k Go-To-Market offensive built on a <strong class="text-teal-600">Creator-Led, Campus-Activated flywheel strategy</strong>. We will first leverage trusted MBA micro-influencers to build initial credibility (Ignite), then empower a network of Campus Ambassadors to drive deep, word-of-mouth adoption (Amplify), and finally integrate users into the InsideIIM ecosystem to ensure long-term retention (Sustain). This approach is designed to achieve our North Star metric of <strong class="text-gray-900">10,000 new users</strong> at a highly efficient blended <strong class="text-gray-900">CAC of ~₹30</strong>, paving the way for a projected <strong class="text-green-600">1.6x LTV/CAC ratio</strong> upon the launch of our future Pro tier. This is not just a user acquisition plan; it is a profitable, scalable model for market entry and long-term dominance.</p>
+            </div>
+        </section>
+
+        <!-- 1. Diagnosis -->
+        <section id="diagnosis" class="mb-24 scroll-mt-24">
+            <div class="text-center mb-12"><h3 class="text-4xl font-bold text-gray-800">1. Diagnosis: A Market Ripe for Disruption</h3><p class="mt-2 text-md text-gray-500">Understanding the user, the context, and the precise nature of the opportunity.</p></div>
+             <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200 mb-8">
+                <h4 class="text-2xl font-semibold mb-6 text-center text-teal-700">Value Proposition Canvas: Achieving Product-Market Fit</h4>
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <div class="value-prop-box"><h5 class="font-bold text-center text-gray-800 mb-4">👤 Customer Profile: "Aarav"</h5>
+                        <h6 class="font-semibold text-green-700">Jobs To Be Done</h6><ul class="text-sm list-disc list-inside space-y-1 mb-4"><li>Secure a high-paying placement</li><li>Compete with Tier-1 students</li><li>Find a structured prep plan</li></ul>
+                        <h6 class="font-semibold text-red-700">Pains 😫</h6><ul class="text-sm list-disc list-inside space-y-1 mb-4"><li>Information overload from unreliable sources</li><li>Anxiety and lack of confidence</li><li>Wasted time on ineffective prep</li></ul>
+                        <h6 class="font-semibold text-blue-700">Gains 👍</h6><ul class="text-sm list-disc list-inside space-y-1"><li>Feeling prepared and in control</li><li>A clear advantage over peers</li><li>Access to elite-level resources</li></ul>
+                    </div>
+                     <div class="value-prop-box"><h5 class="font-bold text-center text-gray-800 mb-4">🚀 PrepBaba Value Map</h5>
+                        <h6 class="font-semibold text-green-700">Gain Creators</h6><ul class="text-sm list-disc list-inside space-y-1 mb-4"><li>AI-powered resume sharpener for an instant edge</li><li>Structured modules provide a clear path to success</li><li>Curated company insights level the playing field</li></ul>
+                        <h6 class="font-semibold text-red-700">Pain Relievers</h6><ul class="text-sm list-disc list-inside space-y-1 mb-4"><li>Single, trusted platform ends information chaos</li><li>Step-by-step guidance reduces anxiety</li><li>Efficient tools maximize impact and save time</li></ul>
+                        <h6 class="font-semibold text-blue-700">Products & Services</h6><ul class="text-sm list-disc list-inside space-y-1"><li>All-in-one Placement Toolkit (Free)</li><li>Future "Pro" Tier for advanced features</li></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8"><div class="lg:col-span-2 bg-white p-8 rounded-lg shadow-lg border border-gray-200"><h4 class="text-2xl font-semibold mb-4 text-teal-700">Macro Trends Fueling Our Strategy</h4><div class="space-y-4 mt-6"><div class="flex items-start gap-4"><div class="text-3xl mt-1">📈</div><div><h5 class="font-bold">The Rise of Remote & Off-Campus Hiring</h5><p class="text-sm text-gray-600">Companies are increasingly looking for talent beyond the IIMs. This democratizes opportunity but requires students to be exceptionally well-prepared, creating a massive demand for tools like PrepBaba.</p></div></div><div class="flex items-start gap-4"><div class="text-3xl mt-1">📱</div><div><h5 class="font-bold">Digital-Native Learners</h5><p class="text-sm text-gray-600">Our target audience lives online. They expect slick, intuitive, and accessible digital tools. The era of dusty PDFs is over; the demand for a modern, all-in-one platform is at an all-time high.</p></div></div></div></div><div class="lg:col-span-1 bg-white p-8 rounded-lg shadow-lg border border-gray-200 text-center"><h4 class="text-2xl font-semibold mb-4 text-teal-700">Market Opportunity</h4><div class="relative w-48 h-48 flex items-center justify-center mx-auto mt-6"><div class="absolute w-full h-full bg-teal-100 rounded-full flex items-center justify-center text-xs text-teal-800">TAM: 300k+</div><div class="absolute w-3/4 h-3/4 bg-teal-200 rounded-full flex items-center justify-center text-sm text-teal-800">SAM: 150k</div><div class="absolute w-1/2 h-1/2 bg-teal-500 rounded-full flex flex-col items-center justify-center text-white"><p class="font-black text-3xl">60k</p><p class="text-xs font-bold">SOM</p></div></div><p class="text-xs text-gray-500 mt-4">Our initial Serviceable Obtainable Market (SOM) represents a high-intent segment we can realistically capture.</p></div></div>
+        </section>
+
+        <!-- 2. Strategy -->
+        <section id="strategy" class="mb-24 scroll-mt-24">
+            <div class="text-center mb-12"><h3 class="text-4xl font-bold text-gray-800">2. Strategy: The Go-To-Market Offensive</h3><p class="mt-2 text-md text-gray-500">A three-phase attack to build trust, drive adoption, and create a sustainable growth engine.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-2xl border border-gray-200 mb-8"><h4 class="text-2xl font-semibold text-center text-teal-700 mb-6">The PrepBaba Growth Engine</h4><div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-center text-center"><div class="p-4 md:col-span-2"><div class="w-20 h-20 bg-teal-100 rounded-full mx-auto flex items-center justify-center text-4xl mb-3">📢</div><h5 class="font-bold text-teal-800 text-xl">PHASE 1: IGNITE</h5><p class="text-sm text-gray-600 mt-1"><strong>Build Credibility.</strong> We will partner with 15+ trusted MBA micro-influencers. Their authentic endorsement is the spark that builds initial belief, social proof, and awareness.</p></div><div class="text-4xl text-gray-300 font-thin hidden md:block">▶</div><div class="p-4 md:col-span-2"><div class="w-20 h-20 bg-green-100 rounded-full mx-auto flex items-center justify-center text-4xl mb-3">🚀</div><h5 class="font-bold text-green-800 text-xl">PHASE 2: AMPLIFY</h5><p class="text-sm text-gray-600 mt-1"><strong>Drive Adoption.</strong> We will empower an army of 20+ Campus Ambassadors to drive deep, on-the-ground adoption and create viral word-of-mouth loops within their trusted college networks.</p></div></div><div class="text-center text-4xl text-gray-300 font-thin my-4">▼</div><div class="p-4 bg-blue-50 rounded-lg text-center md:max-w-xl md:mx-auto"><div class="w-20 h-20 bg-blue-100 rounded-full mx-auto flex items-center justify-center text-4xl mb-3">🔁</div><h5 class="font-bold text-blue-800 text-xl">PHASE 3: SUSTAIN</h5><p class="text-sm text-gray-600 mt-1"><strong>Foster Community.</strong> We will integrate new users into the InsideIIM ecosystem. Today's engaged users become tomorrow's advocates, restarting the engine for long-term, organic growth.</p></div></div>
+            <div class="grid lg:grid-cols-2 gap-8">
+                 <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-200"><h4 class="text-2xl font-semibold mb-4 text-teal-700">Core Messaging Pillars</h4><div class="space-y-4 mt-6"><div class="flex items-start gap-4"><div><h5 class="font-bold">Democratize Opportunity</h5><p class="text-sm text-gray-600">"Get access to the same elite-level prep toolkit used at the top IIMs. Level the playing field."</p></div></div><div class="flex items-start gap-4"><div><h5 class="font-bold">Prep Smarter, Not Harder</h5><p class="text-sm text-gray-600">"Stop wasting time. Our structured, AI-powered tools help you focus on what matters to get you hired."</p></div></div><div class="flex items-start gap-4"><div><h5 class="font-bold">Join a Community of Winners</h5><p class="text-sm text-gray-600">"You're not alone. Become part of the InsideIIM community, India's largest network of top talent."</p></div></div></div></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200"><h4 class="text-xl font-semibold text-center mb-4 text-teal-700">Interactive Acquisition Funnel</h4><div class="space-y-1 text-center"><div class="p-4 bg-teal-500 text-white font-bold text-lg funnel-stage">Reach: <span id="reachValue">1,000,000</span></div><div class="flex items-center justify-center space-x-2 p-2"><label for="ctrSlider" class="text-sm font-medium text-gray-700 w-24">Blended CTR:</label><input id="ctrSlider" type="range" min="1" max="5" value="2.5" step="0.1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"><span id="ctrValue" class="text-sm font-bold text-teal-600 w-12 text-right">2.5%</span></div><div class="p-4 bg-teal-600 text-white font-bold text-lg funnel-stage">Clicks: <span id="clicksValue">25,000</span></div><div class="flex items-center justify-center space-x-2 p-2"><label for="cvrSlider" class="text-sm font-medium text-gray-700 w-24">Sign-up CVR:</label><input id="cvrSlider" type="range" min="20" max="60" value="40" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"><span id="cvrValue" class="text-sm font-bold text-teal-600 w-12 text-right">40%</span></div><div class="p-6 bg-green-600 text-white font-black text-2xl rounded-b-lg shadow-inner">Sign-ups: <span id="signupsValue">10,000</span></div></div></div>
+            </div>
+        </section>
+
+        <!-- 3. Economics -->
+        <section id="economics" class="mb-24 scroll-mt-24">
+            <div class="text-center mb-12"><h3 class="text-4xl font-bold text-gray-800">3. Economics: A Profitable Path to Scale</h3><p class="mt-2 text-md text-gray-500">A disciplined financial model to maximize ROI and justify future investment.</p></div>
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200"><h4 class="text-xl font-semibold text-center mb-4 text-teal-700">Phased Budget Allocation (₹300k)</h4><div class="chart-container"><canvas id="phasedBudgetChart"></canvas></div><p class="text-xs text-gray-500 mt-4 text-center"><strong>Rationale:</strong> We front-load influencer spend in Phase 1 to build trust, then shift budget to scalable Meta Ads and campus activation in Phases 2 & 3 as we gain traction and brand recognition.</p></div>
+                <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-200"><h4 class="text-xl font-semibold text-center mb-4 text-teal-700">The Path to Profitability</h4><div class="grid grid-cols-2 gap-4 mt-8 text-center"><div class="kpi-card"><p class="text-gray-500">Blended CAC</p><p class="text-4xl font-black text-gray-900" id="blendedCAC">₹30</p></div><div class="kpi-card"><p class="text-gray-500">Pro Tier Conversion (Est.)</p><p class="text-4xl font-black text-gray-900">5%</p></div><div class="kpi-card"><p class="text-gray-500">Pro Tier Price (Est.)</p><p class="text-4xl font-black text-gray-900">₹1,000</p></div><div class="kpi-card"><p class="text-gray-500">Projected LTV</p><p class="text-4xl font-black text-gray-900">₹50</p></div></div><div class="mt-6 bg-green-50 border border-green-200 p-4 rounded-lg text-center"><p class="text-green-800 font-bold text-lg">Projected LTV / CAC Ratio</p><p class="text-5xl font-black text-green-600">1.67x</p><p class="text-xs text-green-700 mt-1">This initial campaign is not just a cost center; it is a profitable investment in our future customer base.</p></div></div>
+            </div>
+            <div class="mt-12 bg-red-50 p-8 rounded-lg border border-red-200 text-center"><h4 class="text-2xl font-semibold text-red-800">Crisis Simulation: Resilience Under Pressure</h4><p class="text-red-700 my-2">Modeling a 25% drop in conversion to pressure-test our strategy and define our pivot protocol.</p><button id="sensitivityBtn" class="bg-red-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-700 transition-colors text-lg">Initiate Protocol</button><div id="pivotPlan" class="hidden mt-6 text-left max-w-3xl mx-auto"><p class="font-bold text-red-800 text-center text-xl mb-4">🚨 SCENARIO ACTIVE: Sign-ups drop to ~5,625 & CAC inflates to ~₹53.</p><h5 class="font-semibold text-red-800 text-lg">Immediate Counter-Measures:</h5><ol class="list-decimal list-inside text-red-700 space-y-2 mt-2"><li><strong>Financial Re-allocation:</strong> Immediately cut the bottom 25% of Meta Ad spend. Re-invest 100% of freed capital into performance-based bonuses for our top 5 Campus Ambassador teams to double down on our most efficient, high-conversion channel.</li><li><strong>Activate Organic Force Multiplier:</strong> Expedite the launch of our referral program: "Refer 3 friends, unlock a premium 'Company Deep-Dive' report." This injects a viral loop to offset paid acquisition shortfalls and lower blended CAC.</li></ol></div></div>
+        </section>
+
+        <!-- 4. Roadmap -->
+        <section id="roadmap" class="scroll-mt-24">
+            <div class="text-center mb-12"><h3 class="text-4xl font-bold text-gray-800">4. Roadmap: The 90-Day Sprint to Victory</h4><p class="mt-2 text-md text-gray-500">A detailed, week-by-week operational plan to ensure flawless execution.</p></div>
+            <div class="bg-white p-8 rounded-lg shadow-2xl border border-gray-200">
+                <h4 class="text-2xl font-semibold text-center mb-6 text-teal-700">Project Apex: 90-Day Gantt Chart</h4>
+                <div class="relative text-xs w-full overflow-x-auto"><div class="grid grid-cols-12 gap-0 mb-2 text-center font-bold text-gray-500 border-b pb-2"><div class="col-span-1">Wk 1-4</div><div class="col-span-1 border-l">Wk 5-8</div><div class="col-span-10 border-l">Wk 9-12</div></div><div class="space-y-4 pt-2"><div class="grid grid-cols-12 items-center"><div class="col-span-2 font-bold pr-2">📢 Marketing</div><div class="col-span-10 h-6 relative bg-gray-200 rounded"><div class="gantt-bar bg-teal-500" style="left:0; width: 100%;">Influencer Campaigns</div></div></div><div class="grid grid-cols-12 items-center"><div class="col-span-2 font-bold pr-2">🚀 Growth</div><div class="col-span-10 h-6 relative bg-gray-200 rounded"><div class="gantt-bar bg-green-500" style="left:8.3%; width: 66.7%;">Campus Program</div></div><div class="col-span-2"></div><div class="col-span-10 h-6 relative bg-gray-200 rounded mt-1"><div class="gantt-bar bg-green-400" style="left:25%; width: 75%;">Meta Ads Scaling</div></div></div><div class="grid grid-cols-12 items-center"><div class="col-span-2 font-bold pr-2">❤️ Community</div><div class="col-span-10 h-6 relative bg-gray-200 rounded"><div class="gantt-bar bg-blue-500" style="left:33.3%; width: 66.7%;">Webinars & Nurture</div></div></div><div class="grid grid-cols-12 items-center"><div class="col-span-2 font-bold pr-2">🛠️ Product/Ops</div><div class="col-span-10 h-6 relative bg-gray-200 rounded"><div class="gantt-bar bg-gray-500" style="left:0; width: 25%;">A/B Testing</div></div></div></div></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="border-t-4 border-teal-500 pt-4"><h5 class="font-bold text-teal-700 text-lg">Phase 1: Foundation (Days 1-30)</h5><p class="text-gray-500 text-sm mb-2">Focus: Build Trust & Initial Traction</p><ul class="text-sm list-disc list-inside space-y-1"><li><strong>Sign-ups:</strong> 2,500</li><li><strong>Activation Rate:</strong> >50%</li><li><strong>Primary KPI:</strong> Influencer Engagement</li></ul></div>
+                    <div class="border-t-4 border-green-500 pt-4"><h5 class="font-bold text-green-700 text-lg">Phase 2: Scale (Days 31-60)</h5><p class="text-gray-500 text-sm mb-2">Focus: Optimize & Accelerate Growth</p><ul class="text-sm list-disc list-inside space-y-1"><li><strong>Sign-ups:</strong> 7,000 (cumulative)</li><li><strong>D7 Retention:</strong> >30%</li><li><strong>Primary KPI:</strong> Campus Sign-ups/CAC</li></ul></div>
+                    <div class="border-t-4 border-blue-500 pt-4"><h5 class="font-bold text-blue-700 text-lg">Phase 3: Sustain (Days 61-90)</h5><p class="text-gray-500 text-sm mb-2">Focus: Community & Engagement</p><ul class="text-sm list-disc list-inside space-y-1"><li><strong>Sign-ups:</strong> 10,000+ (cumulative)</li><li><strong>WAU:</strong> >4,000</li><li><strong>Primary KPI:</strong> User Feedback for Pro Tier</li></ul></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white border-t mt-12"><div class="container mx-auto px-6 py-4 text-center text-gray-500"><p>&copy; 2025 | PrepBaba Go-To-Market CEO Blueprint</p></div></footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Chart.register(ChartDataLabels);
+        const initialFunnelData = { reach: 1000000, ctr: 2.5, cvr: 40 };
+        const ctrSlider = document.getElementById('ctrSlider'), cvrSlider = document.getElementById('cvrSlider'), reachValueEl = document.getElementById('reachValue'), clicksValueEl = document.getElementById('clicksValue'), signupsValueEl = document.getElementById('signupsValue'), ctrValueEl = document.getElementById('ctrValue'), cvrValueEl = document.getElementById('cvrValue'), sensitivityBtn = document.getElementById('sensitivityBtn'), pivotPlan = document.getElementById('pivotPlan'), blendedCACEl = document.getElementById('blendedCAC');
+        let phasedBudgetChart;
+        function formatNumber(num) { return new Intl.NumberFormat('en-IN').format(num); }
+        function updateFunnel(data, isSimulation = false) {
+            const clicks = data.reach * (data.ctr / 100);
+            const signups = clicks * (data.cvr / 100);
+            const blendedCAC = signups > 0 ? 300000 / signups : 0;
+            reachValueEl.textContent = formatNumber(data.reach);
+            clicksValueEl.textContent = formatNumber(Math.round(clicks));
+            signupsValueEl.textContent = formatNumber(Math.round(signups));
+            ctrValueEl.textContent = `${data.ctr.toFixed(1)}%`;
+            cvrValueEl.textContent = `${data.cvr.toFixed(0)}%`;
+            if (blendedCACEl) blendedCACEl.textContent = `₹${blendedCAC.toFixed(0)}`;
+            if (!isSimulation) { ctrSlider.value = data.ctr; cvrSlider.value = data.cvr; }
+        }
+        function renderCharts() {
+            if (document.getElementById('phasedBudgetChart')) {
+                const phasedBudgetCtx = document.getElementById('phasedBudgetChart').getContext('2d');
+                phasedBudgetChart = new Chart(phasedBudgetCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Phase 1 (Days 1-30)', 'Phase 2 (Days 31-60)', 'Phase 3 (Days 61-90)'],
+                        datasets: [
+                            { label: 'Influencers', data: [50000, 40000, 30000], backgroundColor: '#14b8a6' },
+                            { label: 'Campus Program', data: [30000, 30000, 30000], backgroundColor: '#22c55e' },
+                            { label: 'Meta Ads', data: [10000, 20000, 30000], backgroundColor: '#3b82f6' },
+                            { label: 'Content/Ops', data: [10000, 10000, 10000], backgroundColor: '#64748b' }
+                        ]
+                    },
+                    options: {
+                        plugins: { legend: { position: 'bottom' }, datalabels: { color: 'white', formatter: (value) => `₹${value/1000}k` } },
+                        responsive: true, maintainAspectRatio: false,
+                        scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: value => `₹${value/1000}k` } } }
+                    }
+                });
+            }
+        }
+        function runSimulation(){
+            const reducedCtr = initialFunnelData.ctr * 0.875, reducedCvr = initialFunnelData.cvr * 0.875;
+            updateFunnel({ ...initialFunnelData, ctr: reducedCtr, cvr: reducedCvr }, true);
+            pivotPlan.classList.remove('hidden');
+            sensitivityBtn.textContent = 'Protocol Activated';
+            sensitivityBtn.disabled = true;
+            sensitivityBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+            sensitivityBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+        }
+        ctrSlider.addEventListener('input', (e) => { initialFunnelData.ctr = parseFloat(e.target.value); updateFunnel(initialFunnelData); });
+        cvrSlider.addEventListener('input', (e) => { initialFunnelData.cvr = parseInt(e.target.value); updateFunnel(initialFunnelData); });
+        sensitivityBtn.addEventListener('click', runSimulation);
+        const navLinks = document.querySelectorAll('.nav-link'), sections = document.querySelectorAll('section');
+        window.addEventListener('scroll', () => {
+            let current = ''; sections.forEach(section => { if (pageYOffset >= section.offsetTop - 120) { current = section.getAttribute('id'); } });
+            navLinks.forEach(link => { link.classList.remove('active'); if (link.getAttribute('href').includes(current)) { link.classList.add('active'); }});
+        });
+        updateFunnel(initialFunnelData); renderCharts();
+    });
+    </script>
+</body>
+</html>
